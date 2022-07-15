@@ -8,7 +8,7 @@ PlayerSettings:
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
-  defaultScreenOrientation: 4
+  defaultScreenOrientation: 3
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
@@ -76,7 +76,7 @@ PlayerSettings:
   androidFullscreenMode: 1
   defaultIsNativeResolution: 1
   macRetinaSupport: 1
-  runInBackground: 1
+  runInBackground: 0
   captureSingleScreen: 0
   muteOtherAudioSources: 0
   Prepare IOS For Recording: 0
@@ -138,8 +138,7 @@ PlayerSettings:
   preloadedAssets:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 4829865867854000324, guid: b471c1f7faf26be459ad8e3ca6ad9995, type: 2}
-  - {fileID: 7724903978455389739, guid: 89ce294c3b16cb34d9ae8d87917d395c, type: 2}
+  - {fileID: 0}
   - {fileID: 0}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -624,7 +623,7 @@ PlayerSettings:
   metroCertificateSubject: IMDlab
   metroCertificateIssuer: IMDlab
   metroCertificateNotAfter: 80b5e4890fb7d901
-  metroApplicationDescription: Template_3D
+  metroApplicationDescription: demo for doctors
   wsaImages: {}
   metroTileShortName: Virtual-Bone-Lego
   metroTileShowName: 0
@@ -640,12 +639,12 @@ PlayerSettings:
   metroSplashScreenUseBackgroundColor: 0
   platformCapabilities:
     WindowsStoreApps:
-      GazeInput: True
+      GazeInput: False
       PrivateNetworkClientServer: True
       InternetClientServer: True
       SpatialPerception: True
       InternetClient: True
-      WebCam: True
+      WebCam: False
       Microphone: True
   metroTargetDeviceFamilies: {}
   metroFTAName: 
