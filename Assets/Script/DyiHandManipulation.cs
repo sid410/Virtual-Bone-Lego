@@ -89,10 +89,15 @@ namespace DyiPinchGrab
         
         private void ProcessPoseChange(MixedRealityPose? previousPose, MixedRealityPose? currentPose)
         {
-            var delta = currentPose.Value.Position - previousPose.Value.Position;
-            var deltaRotation = Quaternion.FromToRotation(previousPose.Value.Forward, currentPose.Value.Forward);
-            gameObject.transform.position += delta;
-            gameObject.transform.rotation *= deltaRotation;
+            //var delta = currentPose.Value.Position - previousPose.Value.Position;
+            //var deltaRotation = Quaternion.FromToRotation(previousPose.Value.Forward, currentPose.Value.Forward);
+            //gameObject.transform.position += delta;
+            //gameObject.transform.rotation *= deltaRotation;
+
+            //instead of calculating the delta position and rotation, snap the gameobject to where the tracked hand is
+            //in this case, position is from IndexMiddleJoint, and rotation is from Palm
+            gameObject.transform.position = currentPose.Value.Position;
+            gameObject.transform.rotation = currentPose.Value.Rotation;
         }
     }
 }

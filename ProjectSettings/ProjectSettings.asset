@@ -137,6 +137,10 @@ PlayerSettings:
   bundleVersion: 0.1
   preloadedAssets:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 4829865867854000324, guid: b471c1f7faf26be459ad8e3ca6ad9995, type: 2}
+  - {fileID: 7724903978455389739, guid: 89ce294c3b16cb34d9ae8d87917d395c, type: 2}
+  - {fileID: 0}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -615,11 +619,11 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: Virtual-Bone-Lego
   metroPackageVersion: 1.0.0.0
-  metroCertificatePath: D:\Sid-D3\Surgery\Virtual-Bone-Lego\Assets\WSATestCertificate.pfx
+  metroCertificatePath: Assets/WSATestCertificate.pfx
   metroCertificatePassword: 
   metroCertificateSubject: IMDlab
   metroCertificateIssuer: IMDlab
-  metroCertificateNotAfter: 00eb19af5fb6d901
+  metroCertificateNotAfter: 80b5e4890fb7d901
   metroApplicationDescription: Template_3D
   wsaImages: {}
   metroTileShortName: Virtual-Bone-Lego
