@@ -1,16 +1,18 @@
 using UnityEngine;
+using M2MqttUnity;
 
 public class LegoManager : MonoBehaviour
 {
-    public GameObject Object1, Object2, Container1, Container2;
-    private Pose init_Parent, init_Obj1, init_Obj2, init_Cont1, init_Cont2;
-
-    private Rigidbody rb1, rb2;
-
     private const float distMax = 0.03f;
     private const float angleMax = 30.0f;
     private const float errorThreshold = 0.35f;
     private float _dist, _angle, _error;
+
+    public BaseClient baseClient;
+    public GameObject Object1, Object2, Container1, Container2;
+
+    private Pose init_Parent, init_Obj1, init_Obj2, init_Cont1, init_Cont2;
+    private Rigidbody rb1, rb2;
 
     //for gradienting the normalized color
     private Gradient gradient;
@@ -29,6 +31,16 @@ public class LegoManager : MonoBehaviour
     private void ChangeState(State newState)
     {
         if (LegoState != newState) LegoState = newState;
+    }
+
+    private void OnEnable()
+    {
+        baseClient.RegisterTopicHandler("M2MQTT/lego", HandleLegoUI);
+    }
+
+    private void OnDisable()
+    {
+        baseClient.UnregisterTopicHandler("M2MQTT/lego", HandleLegoUI);
     }
 
     private void Start()
@@ -125,6 +137,13 @@ public class LegoManager : MonoBehaviour
         ChangeState(State.Start);
     }
 
+    public void SetToPassthru(bool passthru)
+    {
+        if (rb1 == null || rb2 == null) return;
+        rb1.isKinematic = passthru;
+        rb2.isKinematic = passthru;
+    }
+
     private void SaveInitTransforms()
     {
         init_Parent.position = gameObject.transform.localPosition;
@@ -161,10 +180,13 @@ public class LegoManager : MonoBehaviour
         Container2.transform.localRotation = init_Cont2.rotation;
     }
 
-    public void SetToPassthru(bool passthru)
+
+    private void HandleLegoUI(string topic, string message)
     {
-        if (rb1 == null || rb2 == null) return;
-        rb1.isKinematic = passthru;
-        rb2.isKinematic = passthru;
+        if (topic != "M2MQTT/lego") return;
+
+        if (message == "reset") ResetLegoing();
+        if (message == "passthru") SetToPassthru(true);
+        if (message == "collide") SetToPassthru(false);
     }
 }
