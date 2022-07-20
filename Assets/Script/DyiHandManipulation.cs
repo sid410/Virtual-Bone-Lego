@@ -23,6 +23,12 @@ namespace DyiPinchGrab
         [SerializeField]
         private bool trackGrab = true;
 
+        //private bool isColliding = false;
+        public float bounceDelay = 0.125f;
+        private float lastBounce = -1.0f;
+        private Rigidbody rb;
+        
+
         private IMixedRealityHandJointService handJointService;
 
         private IMixedRealityHandJointService HandJointService =>
@@ -33,8 +39,17 @@ namespace DyiPinchGrab
 
         private MixedRealityPose? previousRightHandPose;
 
-        private void Update()
+        private void Start()
         {
+            rb = gameObject.GetComponent<Rigidbody>();
+        }
+
+        private void FixedUpdate()
+        {
+            //if (isColliding) return;
+            if (rb != null && rb.velocity != Vector3.zero) return;
+
+
             var leftHandPose = GetHandPose(Handedness.Left, previousLeftHandPose != null);
             var rightHandPose = GetHandPose(Handedness.Right, previousRightHandPose != null);
             {
@@ -98,6 +113,18 @@ namespace DyiPinchGrab
             //in this case, position is from IndexMiddleJoint, and rotation is from Palm
             gameObject.transform.position = currentPose.Value.Position;
             gameObject.transform.rotation = currentPose.Value.Rotation;
+        }
+
+
+        //to add bouncing effect here
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.tag == "femur" && Time.time > lastBounce + bounceDelay)
+            { 
+                //isColliding = true;
+                collision.rigidbody.AddForce(collision.contacts[0].normal * -1.0f);
+                lastBounce = Time.time;
+            }
         }
     }
 }

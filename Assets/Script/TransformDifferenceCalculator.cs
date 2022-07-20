@@ -6,7 +6,7 @@ public class TransformDifferenceCalculator : MonoBehaviour
 
     private const float distMax = 0.03f;
     private const float angleMax = 30.0f;
-    private const float errorThreshold = 0.2f;
+    private const float errorThreshold = 0.35f;
     private float _dist, _angle, _error;
 
     //for gradienting the normalized color

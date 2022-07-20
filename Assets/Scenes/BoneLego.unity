@@ -134,14 +134,13 @@ GameObject:
   - component: {fileID: 239669179}
   - component: {fileID: 239669182}
   - component: {fileID: 239669181}
-  - component: {fileID: 239669180}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &239669179
 Transform:
   m_ObjectHideFlags: 0
@@ -156,20 +155,6 @@ Transform:
   m_Father: {fileID: 8456548416467433505}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &239669180
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 239669178}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &239669181
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -275,14 +260,13 @@ GameObject:
   - component: {fileID: 366930837}
   - component: {fileID: 366930840}
   - component: {fileID: 366930839}
-  - component: {fileID: 366930838}
   m_Layer: 0
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &366930837
 Transform:
   m_ObjectHideFlags: 0
@@ -297,20 +281,6 @@ Transform:
   m_Father: {fileID: 7395031982352370316}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!136 &366930838
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 366930836}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &366930839
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -370,9 +340,10 @@ GameObject:
   m_Component:
   - component: {fileID: 380879399}
   - component: {fileID: 380879400}
+  - component: {fileID: 380879401}
   m_Layer: 0
   m_Name: Container2
-  m_TagString: Untagged
+  m_TagString: femur
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -385,7 +356,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 380879398}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7395031982352370316}
@@ -405,10 +376,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackedHandJoint: 9
-  grabDistance: 0.3
+  grabDistance: 0.2
   trackedHand: 2
   trackPinch: 0
   trackGrab: 1
+  bounceDelay: 0.125
+--- !u!54 &380879401
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380879398}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0.3
+  m_AngularDrag: 0.3
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &627829070
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,14 +408,13 @@ GameObject:
   - component: {fileID: 627829071}
   - component: {fileID: 627829074}
   - component: {fileID: 627829073}
-  - component: {fileID: 627829072}
   m_Layer: 0
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &627829071
 Transform:
   m_ObjectHideFlags: 0
@@ -442,20 +429,6 @@ Transform:
   m_Father: {fileID: 8456548416467433505}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!136 &627829072
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 627829070}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &627829073
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -845,9 +818,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1982089120}
   - component: {fileID: 1982089121}
+  - component: {fileID: 1982089122}
   m_Layer: 0
   m_Name: Container1
-  m_TagString: Untagged
+  m_TagString: femur
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -860,7 +834,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1982089119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8456548416467433505}
@@ -880,10 +854,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackedHandJoint: 9
-  grabDistance: 0.3
+  grabDistance: 0.2
   trackedHand: 1
   trackPinch: 0
   trackGrab: 1
+  bounceDelay: 0.125
+--- !u!54 &1982089122
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982089119}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0.3
+  m_AngularDrag: 0.3
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2053542791
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,14 +886,13 @@ GameObject:
   - component: {fileID: 2053542792}
   - component: {fileID: 2053542795}
   - component: {fileID: 2053542794}
-  - component: {fileID: 2053542793}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2053542792
 Transform:
   m_ObjectHideFlags: 0
@@ -917,20 +907,6 @@ Transform:
   m_Father: {fileID: 7395031982352370316}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &2053542793
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2053542791}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &2053542794
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1043,10 +1019,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackedHandJoint: 9
-  grabDistance: 0.3
+  grabDistance: 0.2
   trackedHand: 3
   trackPinch: 0
   trackGrab: 1
+  bounceDelay: 0.125
 --- !u!23 &2532743152770213258
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1107,6 +1084,7 @@ GameObject:
   - component: {fileID: 7395031982352370316}
   - component: {fileID: 2819308637647122742}
   - component: {fileID: 3173602929888612472}
+  - component: {fileID: 2966474951433998006}
   m_Layer: 0
   m_Name: femur2
   m_TagString: Untagged
@@ -1114,6 +1092,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &2966474951433998006
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2966474951433998005}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.18543097, y: 0.07753634, z: 0.06969492}
+  m_Center: {x: 0.12, y: -0.0022741084, z: -0.010734112}
 --- !u!23 &3173602929888612472
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1174,6 +1165,7 @@ GameObject:
   - component: {fileID: 8456548416467433505}
   - component: {fileID: 6123317790077568561}
   - component: {fileID: 2532743152770213258}
+  - component: {fileID: 6967288732622666644}
   m_Layer: 0
   m_Name: femur1
   m_TagString: Untagged
@@ -1181,6 +1173,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &6967288732622666644
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6967288732622666643}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.22654484, y: 0.07781141, z: 0.07823554}
+  m_Center: {x: -0.14, y: -0.003806495, z: 0.013889196}
 --- !u!4 &7395031982352370316
 Transform:
   m_ObjectHideFlags: 0
