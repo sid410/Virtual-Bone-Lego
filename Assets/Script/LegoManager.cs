@@ -4,8 +4,8 @@ using M2MqttUnity;
 public class LegoManager : MonoBehaviour
 {
     private const float distMax = 0.03f;
-    private const float angleMax = 30.0f;
-    private const float errorThreshold = 0.35f;
+    private const float angleMax = 5.0f;
+    private const float errorThreshold = 0.3f;
     private float _dist, _angle, _error;
 
     public BaseClient baseClient;
@@ -59,16 +59,25 @@ public class LegoManager : MonoBehaviour
 
     private void Update()
     {
-        if (LegoState == State.Stop) return;
+        //if (LegoState == State.Stop) return;
 
         _dist = NormalizeToMax(Vector3.Distance(Object1.transform.position, Object2.transform.position), true);
         _angle = NormalizeToMax(Vector3.Angle(Object2.transform.forward, Object1.transform.forward), false);
         _error = (_dist + _angle) / 2;
 
-        rendererObject1.material.color = gradient.Evaluate(_error);
-        rendererObject2.material.color = gradient.Evaluate(_error);
+        if (_error == 1)
+        {
+            rendererObject1.material.color = Color.white;
+            rendererObject2.material.color = Color.white;
+        }
+        else
+        {
+            rendererObject1.material.color = gradient.Evaluate(_error);
+            rendererObject2.material.color = gradient.Evaluate(_error);
+        }
+        
 
-        if (_error < errorThreshold) FinishLegoing();
+        //if (_error < errorThreshold) FinishLegoing();
     }
 
     private void SetGradiency()
